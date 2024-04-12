@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Search and Upload</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="styles/main.css"> <!-- Link to main.css -->
+
+    <script type="text/javascript" src="scripts/apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="scripts/apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="scripts/apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="scripts/apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="scripts/apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="scripts/apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="scripts/apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="scripts/apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="scripts/apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="scripts/apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="scripts/apiGateway-js-sdk/apigClient.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Semantic Photo Search</h1>
+        <h3>Search</h3>
+        <div class="row">
+            <div class="three columns">
+                <input class="u-full-width" type="text" id="searchInput" placeholder="Search for photos...">
+            </div>
+            <div class="one column">
+                <button class="button-primary" onclick="searchPhotos()">Search</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns" id="results"></div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+                <h3>Upload</h2>
+                <input class="u-full-width" type="file" id="photoInput">
+                <input class="u-full-width" type="text" id="customLabelsInput" placeholder="Custom Labels (comma-separated)">
+                <button class="button-primary" onclick="uploadPhoto()">Upload</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Mayank Ramnani, Abhay Garg. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

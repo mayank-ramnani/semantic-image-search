@@ -1,0 +1,62 @@
+/* main.css */
+
+body {
+    font-family: Arial, sans-serif;
+    position: relative;
+    min-height: 100vh;
+}
+
+.title
+{
+    text-align: center;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 100px; /* Adjust this value to match the height of your footer */
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px; /* Adjust this value according to your footer height */
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+/* Additional Styles if any */
+/* Photo Results Styles */
+#results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#results img {
+    max-width: 200px;
+    height: auto;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Upload Form Styles */
+#upload {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
