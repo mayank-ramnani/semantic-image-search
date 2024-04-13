@@ -4,12 +4,13 @@ async function searchPhotos() {
     const searchQuery = document.getElementById('searchInput').value;
 
     params = {'q': searchQuery};
-    
-    return sdk.searchGet(params, {});
-
-    // const response = await fetch(`/v1/search?q=${}`);
-    // const data = await response.json();
-    // displayResults(data.results);
+    try {
+        response = await sdk.searchGet(params, {});
+        displayResults(response["data"]["photoUrls"]);
+    }
+    catch (err) {
+        displayError(err);
+    }
 }
 
 function displayResults(results) {
@@ -17,13 +18,15 @@ function displayResults(results) {
     resultsContainer.innerHTML = '';
     results.forEach(photo => {
         const img = document.createElement('img');
-        img.src = photo.url;
+        img.src = photo;
         resultsContainer.appendChild(img);
-
-        const labels = document.createElement('p');
-        labels.textContent = `Labels: ${photo.labels.join(', ')}`;
-        resultsContainer.appendChild(labels);
     });
+}
+
+function displayError(err) {
+    const resultsContainer = document.getElementById('results');
+    console.log(err);
+    resultsContainer.innerHTML = `<p> No Image Found </p>`;
 }
 
 async function uploadPhoto() {
@@ -42,11 +45,7 @@ async function uploadPhoto() {
     xhr.setRequestHeader("x-amz-meta-customLabels", [customLabels])
     // Send the binary data.
     // Since a File is a Blob, you can send it directly.
+    
     xhr.send(file);
-    return;
-    // if (response.ok) {
-    //     alert('Photo uploaded successfully!');
-    // } else {
-    //     alert('Failed to upload photo.');
-    // }
+    alert('File uploaded!');
 }
